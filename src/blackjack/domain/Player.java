@@ -48,7 +48,7 @@ public class Player {
             handValue += card.getValue();
         }
 
-        for (Card ace : Card.ACES) {
+        for (Card ace : Card.getAces()) {
             if (this.hand.contains(ace) && handValue > 21) {
                 handValue -= 10;
             }

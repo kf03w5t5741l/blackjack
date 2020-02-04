@@ -5,14 +5,13 @@ import java.util.Set;
 import java.util.HashSet;
 
 public class Card {
-    private static final Card[] ACE_ARRAY = {
-            new Card(Suit.SPADES, Face.ACE),
-            new Card(Suit.HEARTS, Face.ACE),
-            new Card(Suit.CLUBS, Face.ACE),
-            new Card(Suit.DIAMONDS, Face.ACE)
-    };
-    public static final Set<Card> ACES =
-            new HashSet<Card>(Arrays.asList(ACE_ARRAY));
+    public static Set<Card> getAces() {
+        Set<Card> aces = new HashSet<Card>();
+        for (Suit suit : Suit.values()) {
+            aces.add(new Card(suit, Face.ACE));
+        }
+        return aces;
+    }
 
     private Suit suit;
     private Face face;
