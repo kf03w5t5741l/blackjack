@@ -10,6 +10,8 @@ import blackjack.ui.TextUserInterface;
 
 public class Main {
     public static void main(String[] args) {
+        TextUserInterface.printWelcome();
+
         PlayerGatherer pg = new PlayerGatherer();
         List<Player> players = pg.gather();
 
@@ -17,5 +19,7 @@ public class Main {
         TextUserInterface ui = new TextUserInterface(round);
 
         ui.run();
+
+        TextUserInterface.printFarewell();
     }
 }

@@ -9,6 +9,16 @@ import blackjack.domain.Card;
 import blackjack.domain.Player;
 
 public class TextUserInterface {
+    public static void printWelcome() {
+        System.out.println("Welcome to blackjack9000_improved_moneymaker.net");
+        System.out.println("(We are totally legit, pinky promise...)");
+        System.out.println("");
+    }
+
+    public static void printFarewell() {
+        System.out.println("Thanks for playing!");
+    }
+
     private Scanner reader;
     private GameRound round;
 
@@ -18,7 +28,9 @@ public class TextUserInterface {
     }
 
     public void run() {
-        this.printWelcome();
+        System.out.println("\n======\nLET'S PLAY");
+        System.out.println("Instructions: 'h' to hit (new card), 's' to stand,"
+                + " 'q' to quit.");
 
         for (Player player : this.round.getPlayers()) {
             while (player.isPlaying()) {
@@ -42,8 +54,6 @@ public class TextUserInterface {
                 }
             }
         }
-
-        this.printFarewell();
     }
 
     private String getUserCommand() {
@@ -75,15 +85,5 @@ public class TextUserInterface {
         return false;
     }
 
-    private void printWelcome() {
-        System.out.println("Welcome to blackjack9000_improved_moneymaker.net");
-        System.out.println("(We are totally legit, pinky promise...)");
-        System.out.println("");
-        System.out.println("Instructions: 'h' to hit (new card), 's' to stand,"
-                + " 'q' to quit.");
-    }
 
-    private void printFarewell() {
-        System.out.println("Thanks for playing!");
-    }
 }
