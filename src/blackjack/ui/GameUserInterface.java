@@ -6,21 +6,11 @@ import blackjack.logic.GameRound;
 import blackjack.domain.Card;
 import blackjack.domain.Player;
 
-public class TextUserInterface {
-    public static void printWelcome() {
-        System.out.println("Welcome to blackjack9000_improved_moneymaker.net");
-        System.out.println("(We are totally legit, pinky promise...)");
-        System.out.println("");
-    }
-
-    public static void printFarewell() {
-        System.out.println("Thanks for playing!");
-    }
-
+public class GameUserInterface {
     private Scanner reader;
     private GameRound round;
 
-    public TextUserInterface(GameRound round) {
+    public GameUserInterface(GameRound round) {
         this.reader = new Scanner(System.in);
         this.round = round;
     }
