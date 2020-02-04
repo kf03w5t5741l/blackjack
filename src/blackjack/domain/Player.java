@@ -18,7 +18,9 @@ public class Player implements Comparable<Player> {
 
     public Card draw(Deck deck) {
         Card drawnCard = deck.draw();
-        this.hand.add(drawnCard);
+        if (drawnCard != null) {
+            this.hand.add(drawnCard);
+        }
         return drawnCard;
     }
 
