@@ -11,7 +11,8 @@ public class Card {
             new Card(Suit.CLUBS, Face.ACE),
             new Card(Suit.DIAMONDS, Face.ACE)
     };
-    public static final Set<Card> ACES = new HashSet(Arrays.asList(ACE_ARRAY));
+    public static final Set<Card> ACES =
+            new HashSet<Card>(Arrays.asList(ACE_ARRAY));
 
     private Suit suit;
     private Face face;
