@@ -9,10 +9,6 @@ public class Main {
         TextUserInterface ui = new TextUserInterface(myDeck);
 
         myDeck.shuffle();
-
-        System.out.println(myDeck);
-        System.out.println(myDeck.getSize());
-
         ui.run();
     }
 }
