@@ -20,25 +20,25 @@ public class TextUserInterface {
     public void run() {
         this.printWelcome();
 
-        for (Player activePlayer : this.round.getPlayers()) {
-            while (activePlayer.isPlaying()) {
-                activePlayer.incrementTurns();
+        for (Player player : this.round.getPlayers()) {
+            while (player.isPlaying()) {
+                player.incrementTurns();
                 System.out.println("\n======");
-                System.out.println(activePlayer.getName() + " - turn " +
-                        activePlayer.getTurns());
-                System.out.println("Hand: " + activePlayer.getHand());
-                System.out.println("Value: " + activePlayer.getHandValue());
+                System.out.println(player.getName() + " - turn " +
+                        player.getTurns());
+                System.out.println("Hand: " + player.getHand());
+                System.out.println("Value: " + player.getHandValue());
 
                 String userCommand = "";
-                while (!this.parseCommand(userCommand, activePlayer)) {
+                while (!this.parseCommand(userCommand, player)) {
                     userCommand = this.getUserCommand();
                 }
 
-                if (activePlayer.isDead()) {
-                    System.out.println(activePlayer.getName() + " has lost."
-                            + " (Hand value: " + activePlayer.getHandValue()
+                if (player.isDead()) {
+                    System.out.println(player.getName() + " has lost."
+                            + " (Hand value: " + player.getHandValue()
                             + " > 21)");
-                    activePlayer.setPlaying(false);
+                    player.setPlaying(false);
                 }
             }
         }
