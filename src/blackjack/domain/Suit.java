@@ -1,7 +1,10 @@
 package blackjack.domain;
 
 public enum Suit {
-    CLUBS("K"), DIAMONDS("R"), HEARTS("H"), SPADES("S");
+    CLUBS("C"),
+    DIAMONDS("D"),
+    HEARTS("H"),
+    SPADES("S");
 
     private String symbol;
 

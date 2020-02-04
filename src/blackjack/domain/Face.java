@@ -10,9 +10,9 @@ public enum Face {
     EIGHT(8),
     NINE(9),
     TEN(10),
-    JACK(10, "B"),
-    QUEEN(10, "V"),
-    KING(10, "H"),
+    JACK(10, "J"),
+    QUEEN(10, "Q"),
+    KING(10, "K"),
     ACE(11, "A");
 
     private int value;

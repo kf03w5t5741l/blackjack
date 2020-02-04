@@ -11,7 +11,7 @@ public class Card {
             new Card(Suit.CLUBS, Face.ACE),
             new Card(Suit.DIAMONDS, Face.ACE)
     };
-    public final Set ACES = new HashSet(Arrays.asList(ACE_ARRAY));
+    public static final Set ACES = new HashSet(Arrays.asList(ACE_ARRAY));
 
     private Suit suit;
     private Face face;
@@ -23,6 +23,10 @@ public class Card {
 
     public int getValue() {
         return this.face.getValue();
+    }
+
+    public Suit getSuit() {
+        return this.suit;
     }
 
     public Face getFace() {
@@ -41,7 +45,8 @@ public class Card {
 
         Card otherCard = (Card)otherObject;
 
-        if (this.face == otherCard.getFace()) {
+        if (this.suit == otherCard.getSuit()
+                && this.face == otherCard.getFace()) {
             return true;
         } else {
             return false;
@@ -50,7 +55,7 @@ public class Card {
 
     @Override
     public int hashCode() {
-        return this.face.hashCode();
+        return this.suit.hashCode() + this.face.hashCode();
     }
 
     @Override
