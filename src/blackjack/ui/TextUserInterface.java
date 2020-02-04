@@ -26,9 +26,9 @@ public class TextUserInterface {
     public void run() {
         this.printWelcome();
         this.addPlayers();
+        this.dealFirstCards();
 
         for (Player activePlayer : players) {
-
             while (activePlayer.isPlaying()) {
                 activePlayer.incrementTurns();
                 System.out.println("\n======");
@@ -85,6 +85,13 @@ public class TextUserInterface {
 
     private void addPlayers() {
         this.players.add(new Player("kf03w5t5741l"));
+    }
+
+    private void dealFirstCards() {
+        for (Player player : this.players) {
+            player.draw(this.deck);
+            player.draw(this.deck);
+        }
     }
 
     private void printWelcome() {
