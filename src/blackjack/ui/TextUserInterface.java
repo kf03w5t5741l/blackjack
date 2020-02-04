@@ -88,7 +88,7 @@ public class TextUserInterface {
     }
 
     private void printWelcome() {
-        System.out.println("Welcome to Blackjack9000_improved_moneymaker.net");
+        System.out.println("Welcome to blackjack9000_improved_moneymaker.net");
         System.out.println("(We are totally legit, pinky promise...)");
         System.out.println("");
         System.out.println("Instructions: 'h' to hit (new card), 's' to stand,"
