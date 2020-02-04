@@ -3,7 +3,7 @@ package blackjack.domain;
 import java.util.List;
 import java.util.ArrayList;
 
-public class Player {
+public class Player implements Comparable<Player> {
     private String name;
     private List<Card> hand;
     private boolean playing;
@@ -63,6 +63,17 @@ public class Player {
 
     public int getTurns() {
         return this.turns;
+    }
+
+    @Override
+    public int compareTo(Player otherPlayer) {
+        if (this.getHandValue() > otherPlayer.getHandValue()) {
+            return -1;
+        } else if (this.getHandValue() < otherPlayer.getHandValue()) {
+            return 1;
+        } else {
+            return 0;
+        }
     }
 
     @Override
