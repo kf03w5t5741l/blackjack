@@ -1,19 +1,19 @@
 package blackjack.domain;
 
 public enum Face {
-    TWEE(2),
-    DRIE(3),
-    VIER(4),
-    VIJF(5),
-    ZES(6),
-    ZEVEN(7),
-    ACHT(8),
-    NEGEN(9),
-    TIEN(10),
-    BOER(10, "B"),
-    VROUW(10, "V"),
-    HEER(10, "H"),
-    AAS(11, "A");
+    TWO(2),
+    THREE(3),
+    FOUR(4),
+    FIVE(5),
+    SIX(6),
+    SEVEN(7),
+    EIGHT(8),
+    NINE(9),
+    TEN(10),
+    JACK(10, "B"),
+    QUEEN(10, "V"),
+    KING(10, "H"),
+    ACE(11, "A");
 
     private int value;
     private String symbol;
