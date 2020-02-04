@@ -12,7 +12,6 @@ public class Main {
         TextUserInterface.printWelcome();
 
         List<Player> players = PlayerGatherer.gather();
-
         GameRound round = new GameRound(players);
         TextUserInterface ui = new TextUserInterface(round);
 
