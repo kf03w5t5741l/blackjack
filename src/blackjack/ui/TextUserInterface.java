@@ -1,8 +1,6 @@
 package blackjack.ui;
 
 import java.util.Scanner;
-import java.util.List;
-import java.util.ArrayList;
 
 import blackjack.logic.GameRound;
 import blackjack.domain.Card;
