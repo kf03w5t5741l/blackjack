@@ -33,6 +33,7 @@ public class Deck {
         return drawnCard;
     }
 
+    // Note to self: Collections.shuffle() method...
     public void shuffle() {
         List<Card> shuffledDeck = new ArrayList<Card>();
         while (this.cards.size() > 0) {
