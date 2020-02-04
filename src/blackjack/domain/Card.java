@@ -1,6 +1,6 @@
 package blackjack.domain;
 
-import java.util.Arrays;
+import java.util.Objects;
 import java.util.Set;
 import java.util.HashSet;
 
@@ -55,7 +55,7 @@ public class Card {
 
     @Override
     public int hashCode() {
-        return this.suit.hashCode() + this.face.hashCode();
+        return Objects.hash(this.suit.hashCode(), this.face.hashCode());
     }
 
     @Override
