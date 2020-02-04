@@ -1,14 +1,20 @@
 package blackjack;
 
-import blackjack.domain.Deck;
+import java.util.List;
+import java.util.ArrayList;
+
+import blackjack.domain.Player;
+import blackjack.logic.GameRound;
 import blackjack.ui.TextUserInterface;
 
 public class Main {
     public static void main(String[] args) {
-        Deck myDeck = new Deck();
-        TextUserInterface ui = new TextUserInterface(myDeck);
+        List<Player> players = new ArrayList<Player>();
+        players.add(new Player("kf03w5t5741l"));
 
-        myDeck.shuffle();
+        GameRound round = new GameRound(players);
+        TextUserInterface ui = new TextUserInterface(round);
+
         ui.run();
     }
 }

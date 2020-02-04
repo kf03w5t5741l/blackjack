@@ -4,31 +4,23 @@ import java.util.Scanner;
 import java.util.List;
 import java.util.ArrayList;
 
-import blackjack.domain.Deck;
+import blackjack.logic.GameRound;
 import blackjack.domain.Card;
 import blackjack.domain.Player;
 
 public class TextUserInterface {
     private Scanner reader;
-    private Deck deck;
-    private List<Player> players;
-    private List<Player> retiredPlayers;
-    private List<Player> deadPlayers;
+    private GameRound round;
 
-    public TextUserInterface(Deck deck) {
+    public TextUserInterface(GameRound round) {
         this.reader = new Scanner(System.in);
-        this.deck = deck;
-        this.players = new ArrayList<Player>();
-        this.retiredPlayers = new ArrayList<Player>();
-        this.deadPlayers = new ArrayList<Player>();
+        this.round = round;
     }
 
     public void run() {
         this.printWelcome();
-        this.addPlayers();
-        this.dealFirstCards();
 
-        for (Player activePlayer : players) {
+        for (Player activePlayer : this.round.getPlayers()) {
             while (activePlayer.isPlaying()) {
                 activePlayer.incrementTurns();
                 System.out.println("\n======");
@@ -47,7 +39,6 @@ public class TextUserInterface {
                             + " (Hand value: " + activePlayer.getHandValue()
                             + " > 21)");
                     activePlayer.setPlaying(false);
-                    this.deadPlayers.add(activePlayer);
                 }
             }
         }
@@ -66,12 +57,13 @@ public class TextUserInterface {
             case "q":
                 System.exit(0);
             case "s":
-                System.out.println(activePlayer.getName() + " stands. "
-                        + "(Hand value: " + activePlayer.getHandValue() + ")");
+                System.out.println(activePlayer.getName() + " stands. Hand: "
+                        + activePlayer.getHand() + " (value: "
+                        + activePlayer.getHandValue() + ")");
                 activePlayer.setPlaying(false);
                 return true;
             case "h":
-                Card drawnCard = activePlayer.draw(this.deck);
+                Card drawnCard = activePlayer.draw(this.round.getDeck());
                 System.out.println(activePlayer.getName() + " drew "
                         + drawnCard);
                 System.out.println("New hand: " + activePlayer.getHand()
@@ -81,17 +73,6 @@ public class TextUserInterface {
                 break;
         }
         return false;
-    }
-
-    private void addPlayers() {
-        this.players.add(new Player("kf03w5t5741l"));
-    }
-
-    private void dealFirstCards() {
-        for (Player player : this.players) {
-            player.draw(this.deck);
-            player.draw(this.deck);
-        }
     }
 
     private void printWelcome() {
