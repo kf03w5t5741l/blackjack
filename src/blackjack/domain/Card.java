@@ -9,6 +9,10 @@ public class Card {
         this.face = face;
     }
 
+    public int getValue() {
+        return this.face.getValue();
+    }
+
     @Override
     public String toString() {
         return this.suit.getSymbol() + this.face.getSymbol();
