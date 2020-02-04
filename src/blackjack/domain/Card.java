@@ -60,6 +60,6 @@ public class Card {
 
     @Override
     public String toString() {
-        return this.suit.getSymbol() + this.face.getSymbol();
+        return this.face.getSymbol() + this.suit.getSymbol();
     }
 }
