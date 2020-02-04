@@ -52,22 +52,22 @@ public class TextUserInterface {
        return userInput;
     }
 
-    private boolean parseCommand(String userAction, Player activePlayer) {
-        switch (userAction) {
+    private boolean parseCommand(String userCommand, Player player) {
+        switch (userCommand) {
             case "q":
                 System.exit(0);
             case "s":
-                System.out.println(activePlayer.getName() + " stands. Hand: "
-                        + activePlayer.getHand() + " (value: "
-                        + activePlayer.getHandValue() + ")");
-                activePlayer.setPlaying(false);
+                System.out.println(player.getName() + " stands. Hand: "
+                        + player.getHand() + " (value: "
+                        + player.getHandValue() + ")");
+                player.setPlaying(false);
                 return true;
             case "h":
-                Card drawnCard = activePlayer.draw(this.round.getDeck());
-                System.out.println(activePlayer.getName() + " drew "
+                Card drawnCard = player.draw(this.round.getDeck());
+                System.out.println(player.getName() + " drew "
                         + drawnCard);
-                System.out.println("New hand: " + activePlayer.getHand()
-                        + " (value: " + activePlayer.getHandValue() + ")");
+                System.out.println("New hand: " + player.getHand()
+                        + " (value: " + player.getHandValue() + ")");
                 return true;
             default:
                 break;
