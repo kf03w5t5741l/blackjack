@@ -1,7 +1,6 @@
 package blackjack;
 
 import java.util.List;
-import java.util.ArrayList;
 
 import blackjack.domain.Player;
 import blackjack.logic.GameRound;
