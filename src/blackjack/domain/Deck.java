@@ -43,10 +43,6 @@ public class Deck {
         this.cards = shuffledDeck;
     }
 
-    public int getSize() {
-        return this.cards.size();
-    }
-
     @Override
     public String toString() {
         return this.cards.toString();
