@@ -1,8 +1,8 @@
 # Blackjack
 
-Simple Blackjack implementation.
+Simple Blackjack implementation. Meets the base requirements in the assignment specification.
 
-## TODO
+## TODO - bonus features
 
 * Add bank
 * Add option for multiple players
