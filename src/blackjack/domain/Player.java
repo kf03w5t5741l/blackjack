@@ -77,6 +77,30 @@ public class Player implements Comparable<Player> {
     }
 
     @Override
+    public boolean equals(Object otherObject) {
+        if (otherObject == null) {
+            return false;
+        }
+
+        if (this.getClass() != otherObject.getClass()) {
+            return false;
+        }
+
+        Player otherPlayer = (Player) otherObject;
+
+        if (this.name.equals(otherPlayer.getName())) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public int hashCode() {
+        return this.name.hashCode();
+    }
+
+    @Override
     public String toString() {
         return this.name + ": " + this.hand + " (value: " + this.getHandValue()
                 + ")";
