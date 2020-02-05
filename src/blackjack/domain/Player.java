@@ -33,7 +33,7 @@ public class Player implements Comparable<Player> {
     }
 
     public boolean isDead() {
-        return this.getHandValue() > 21;
+        return this.handValue() > 21;
     }
 
     public String getName() {
@@ -44,7 +44,7 @@ public class Player implements Comparable<Player> {
         return this.hand;
     }
 
-    public int getHandValue() {
+    public int handValue() {
         int handValue = 0;
         for (Card card : hand) {
             handValue += card.getValue();
@@ -69,9 +69,9 @@ public class Player implements Comparable<Player> {
 
     @Override
     public int compareTo(Player otherPlayer) {
-        if (this.getHandValue() > otherPlayer.getHandValue()) {
+        if (this.handValue() > otherPlayer.handValue()) {
             return -1;
-        } else if (this.getHandValue() < otherPlayer.getHandValue()) {
+        } else if (this.handValue() < otherPlayer.handValue()) {
             return 1;
         } else {
             return 0;
@@ -104,7 +104,7 @@ public class Player implements Comparable<Player> {
 
     @Override
     public String toString() {
-        return this.name + ": " + this.hand + " (value: " + this.getHandValue()
+        return this.name + ": " + this.hand + " (value: " + this.handValue()
                 + ")";
     }
 }

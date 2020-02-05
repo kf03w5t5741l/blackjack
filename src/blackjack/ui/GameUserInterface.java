@@ -27,7 +27,7 @@ public class GameUserInterface {
                 System.out.println(player.getName() + " - turn " +
                         player.getTurns());
                 System.out.println("Hand: " + player.getHand());
-                System.out.println("Value: " + player.getHandValue());
+                System.out.println("Value: " + player.handValue());
 
                 String userCommand = "";
                 while (!this.parseCommand(userCommand, player)) {
@@ -36,12 +36,15 @@ public class GameUserInterface {
 
                 if (player.isDead()) {
                     System.out.println(player.getName() + " has lost."
-                            + " (Hand value: " + player.getHandValue()
+                            + " (Hand value: " + player.handValue()
                             + " > 21)");
                     player.setPlaying(false);
                 }
             }
         }
+
+        this.round.playHouseTurn();
+        this.printWinners();
     }
 
     private String getUserCommand() {
@@ -57,7 +60,7 @@ public class GameUserInterface {
             case "s":
                 System.out.println(player.getName() + " stands. Hand: "
                         + player.getHand() + " (value: "
-                        + player.getHandValue() + ")");
+                        + player.handValue() + ")");
                 player.setPlaying(false);
                 return true;
             case "h":
@@ -65,7 +68,7 @@ public class GameUserInterface {
                 System.out.println(player.getName() + " drew "
                         + drawnCard);
                 System.out.println("New hand: " + player.getHand()
-                        + " (value: " + player.getHandValue() + ")");
+                        + " (value: " + player.handValue() + ")");
                 return true;
             default:
                 break;
@@ -73,5 +76,15 @@ public class GameUserInterface {
         return false;
     }
 
+    private void printWinners() {
+        System.out.println("\n======\nWINNERS");
 
+        for (Player player : this.round.getPlayers()) {
+            Player house = this.round.getHouse();
+            Player winner = (this.round.hasWon(player)) ? player : house;
+
+            System.out.println(house.getName() + " v. " + player.getName()
+                    + ": "+ winner.getName() + " wins.");
+        }
+    }
 }
