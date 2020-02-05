@@ -1,8 +1,5 @@
 package blackjack;
 
-import java.util.List;
-
-import blackjack.domain.Player;
 import blackjack.logic.GameRound;
 import blackjack.ui.Greeter;
 import blackjack.ui.PlayerGatherer;
@@ -12,8 +9,10 @@ public class Main {
     public static void main(String[] args) {
         Greeter.printWelcome();
 
-        List<Player> players = PlayerGatherer.gather();
-        GameRound round = new GameRound(players);
+        PlayerGatherer pg = new PlayerGatherer();
+        pg.gather();
+
+        GameRound round = new GameRound(pg.getPlayers());
         GameUserInterface ui = new GameUserInterface(round);
 
         ui.run();
