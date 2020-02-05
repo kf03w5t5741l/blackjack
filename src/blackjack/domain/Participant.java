@@ -16,17 +16,13 @@ public class Participant {
         this.turns = 0;
     }
 
+
     public Card draw(Deck deck) {
         Card drawnCard = deck.draw();
         if (drawnCard != null) {
             this.hand.add(drawnCard);
         }
         return drawnCard;
-    }
-
-    public void prepareForNewRound() {
-        this.setPlaying(true);
-        this.hand.clear();
     }
 
     public List<Card> draw(Deck deck, int amount) {
@@ -83,6 +79,11 @@ public class Participant {
 
     public int getTurns() {
         return this.turns;
+    }
+
+    public void prepareForNewRound() {
+        this.setPlaying(true);
+        this.hand.clear();
     }
 
     @Override
