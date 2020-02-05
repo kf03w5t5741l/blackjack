@@ -27,25 +27,17 @@ public class GameUserInterface {
     }
 
     private void playTurn(Player player) {
+        System.out.println("\n======");
         while (player.isPlaying()) {
             player.incrementTurns();
-            System.out.println("\n======");
-            System.out.println(player.getName() + " - turn " +
-                    player.getTurns());
-            System.out.println("Hand: " + player.getHand());
-            System.out.println("Value: " + player.handValue());
+            System.out.println("Turn " + player.getTurns() + " - " + player);
 
             String userCommand = "";
             while (!this.parseCommand(userCommand, player)) {
                 userCommand = this.getUserCommand();
             }
 
-            if (player.isDead()) {
-                System.out.println(player.getName() + " has lost."
-                        + " (Hand value: " + player.handValue()
-                        + " > 21)");
-                player.setPlaying(false);
-            }
+            this.checkDead(player);
         }
     }
 
@@ -59,6 +51,17 @@ public class GameUserInterface {
             Card drawnCard = house.draw(this.round.getDeck());
             System.out.println(house.getName() + " drew " + drawnCard);
             System.out.println(house);
+        }
+
+        this.checkDead(house);
+    }
+
+    private void checkDead(Player player) {
+        if (player.isDead()) {
+            System.out.println(player.getName() + " is bust."
+                    + " (Hand value: " + player.handValue()
+                    + " > 21)");
+            player.setPlaying(false);
         }
     }
 
