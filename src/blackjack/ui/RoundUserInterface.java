@@ -32,7 +32,7 @@ public class RoundUserInterface {
         this.printRoundWinners();
     }
 
-    public void collectBet(Player player) {
+    private void collectBet(Player player) {
         int bet = -1;
         while (!round.addBet(player, bet)) {
             System.out.print("Balance: " + player.getBalance() + ". "

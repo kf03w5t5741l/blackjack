@@ -43,10 +43,6 @@ public class GameRound {
         return this.deck;
     }
 
-    public Map<Player, Integer> getBets() {
-        return this.bets;
-    }
-
     public int getBet(Player player) {
         if (this.bets.containsKey(player) && this.bets.get(player) != null) {
             return this.bets.get(player);
