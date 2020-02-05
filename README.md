@@ -1,6 +1,6 @@
 # Blackjack
 
-Simple Blackjack implementation. Meets the base requirements in the assignment specification.
+Simple Blackjack implementation. Meets the base and optional requirements in the assignment specification.
 
 ## TODO - bonus features
 
