@@ -40,10 +40,6 @@ public class PlayerManager {
         }
     }
 
-    public void clear() {
-        this.players.clear();
-    }
-
     public void printHighScores() {
         List<Player> highScores = new ArrayList<Player>();
         highScores.addAll(this.players);
