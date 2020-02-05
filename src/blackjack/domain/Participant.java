@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Participant {
-
     private String name;
     private List<Card> hand;
     private boolean playing;
@@ -79,7 +78,6 @@ public class Participant {
                 handValue -= 10;
             }
         }
-
         return handValue;
     }
 

@@ -37,9 +37,9 @@ public class Player extends Participant implements Comparable<Player> {
 
     @Override
     public int compareTo(Player otherPlayer) {
-        if (this.handValue() > otherPlayer.handValue()) {
+        if (this.balance > otherPlayer.getBalance()) {
             return -1;
-        } else if (this.handValue() < otherPlayer.handValue()) {
+        } else if (this.balance < otherPlayer.getBalance()) {
             return 1;
         } else {
             return 0;
