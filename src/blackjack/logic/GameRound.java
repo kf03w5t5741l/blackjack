@@ -24,16 +24,6 @@ public class GameRound {
         this.house.draw(this.deck, 2);
     }
 
-    public void playHouseTurn() {
-
-
-        while (this.house.handValue() < 17) {
-            Card drawnCard = this.house.draw(this.deck);
-            System.out.println(this.house.getName() + " drew " + drawnCard);
-            System.out.println(this.house);
-        }
-    }
-
     public List<Player> getPlayers() {
         return this.players;
     }
