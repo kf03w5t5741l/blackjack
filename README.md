@@ -11,3 +11,5 @@ Simple Blackjack implementation. Meets the base and optional requirements in the
 * ~~High Score board (on exit)~~
 * ???
 * Profit
+
+Assignment status: `COMPLETE`
