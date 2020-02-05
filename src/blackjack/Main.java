@@ -8,13 +8,13 @@ public class Main {
     public static void main(String[] args) {
         Greeter.printWelcome();
 
-        PlayerManager pg = new PlayerManager();
-        pg.gather();
+        PlayerManager pm = new PlayerManager();
+        pm.gather();
 
-        RoundManager rm = new RoundManager(pg.getPlayers());
+        RoundManager rm = new RoundManager(pm.getPlayers());
         rm.run();
 
-        pg.printHighScores();
+        pm.printHighScores();
 
         Greeter.printFarewell();
     }
