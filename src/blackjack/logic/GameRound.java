@@ -57,7 +57,7 @@ public class GameRound {
 
     public boolean addBet(Player player, int amount) {
         if (player.bet(amount)) {
-            bets.put(player, amount);
+            this.bets.put(player, amount);
             return true;
         } else {
             return false;
