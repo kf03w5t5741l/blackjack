@@ -45,7 +45,8 @@ public class GameUserInterface {
         Player house = this.round.getHouse();
 
         System.out.println("\n======\nHOUSE TURN");
-        System.out.println(house);
+        house.incrementTurns();
+        System.out.println("Turn " + house.getTurns() + " - " + house);
 
         while (house.handValue() < 17) {
             Card drawnCard = house.draw(this.round.getDeck());
@@ -53,15 +54,20 @@ public class GameUserInterface {
             System.out.println(house);
         }
 
-        this.checkDead(house);
+        if (house.isDead()){
+            this.checkDead(house);
+        } else {
+            System.out.println(house + " stands.");
+        }
     }
 
-    private void checkDead(Player player) {
+    private boolean checkDead(Player player) {
         if (player.isDead()) {
-            System.out.println(player.getName() + " is bust."
-                    + " (Hand value: " + player.handValue()
-                    + " > 21)");
+            System.out.println(player + " is bust. (Hand value > 21)");
             player.setPlaying(false);
+            return true;
+        } else {
+            return false;
         }
     }
 
@@ -76,9 +82,7 @@ public class GameUserInterface {
             case "q":
                 System.exit(0);
             case "s":
-                System.out.println(player.getName() + " stands. Hand: "
-                        + player.getHand() + " (value: "
-                        + player.handValue() + ")");
+                System.out.println(player + " stands.");
                 player.setPlaying(false);
                 return true;
             case "h":
@@ -101,9 +105,11 @@ public class GameUserInterface {
             Player house = this.round.getHouse();
             Player winner = (this.round.hasWon(player)) ? player : house;
 
-            System.out.println(house.getName() + " v. " + player.getName()
+            System.out.println(house + " v. " + player
                     + ": "+ winner.getName() + " wins.");
         }
+
+        System.out.println("");
     }
 
     private void printInstructions() {
