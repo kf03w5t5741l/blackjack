@@ -22,7 +22,7 @@ public class GameUserInterface {
             this.playTurn(player);
         }
 
-        this.round.playHouseTurn();
+        this.playHouseTurn();
         this.printWinners();
     }
 
@@ -46,6 +46,19 @@ public class GameUserInterface {
                         + " > 21)");
                 player.setPlaying(false);
             }
+        }
+    }
+
+    private void playHouseTurn() {
+        Player house = this.round.getHouse();
+
+        System.out.println("\n======\nHOUSE TURN");
+        System.out.println(house);
+
+        while (house.handValue() < 17) {
+            Card drawnCard = house.draw(this.round.getDeck());
+            System.out.println(house.getName() + " drew " + drawnCard);
+            System.out.println(house);
         }
     }
 

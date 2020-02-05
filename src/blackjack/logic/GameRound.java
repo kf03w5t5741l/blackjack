@@ -20,13 +20,12 @@ public class GameRound {
         for (Player player : this.players) {
             player.draw(this.deck, 2);
         }
+
+        this.house.draw(this.deck, 2);
     }
 
     public void playHouseTurn() {
-        System.out.println("\n======\nHOUSE TURN");
-        this.house.draw(this.deck, 2);
 
-        System.out.println(this.house);
 
         while (this.house.handValue() < 17) {
             Card drawnCard = this.house.draw(this.deck);
