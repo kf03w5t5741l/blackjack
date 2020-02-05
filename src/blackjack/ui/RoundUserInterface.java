@@ -29,7 +29,7 @@ public class RoundUserInterface {
         this.playHouseTurn();
 
         this.round.processBetResults();
-        this.printWinners();
+        this.printRoundWinners();
     }
 
     public void collectBet(Player player) {
@@ -113,7 +113,7 @@ public class RoundUserInterface {
         return false;
     }
 
-    private void printWinners() {
+    private void printRoundWinners() {
         System.out.println("\n======\nWINNERS");
 
         for (Player player : this.round.getPlayers()) {
