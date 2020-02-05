@@ -18,14 +18,12 @@ public class GameRound {
         this.house = new Player("The House");
 
         for (Player player : this.players) {
-            player.draw(this.deck);
-            player.draw(this.deck);
+            player.draw(this.deck, 2);
         }
     }
 
     public void playHouseTurn() {
-        this.house.draw(this.deck);
-        this.house.draw(this.deck);
+        this.house.draw(this.deck, 2);
 
         System.out.println(this.house);
 
@@ -51,7 +49,7 @@ public class GameRound {
     public boolean hasWon(Player player) {
         if (!player.isDead()
                 && (this.house.isDead()
-                || player.handValue() > this.house.handValue())) {
+                    || player.handValue() > this.house.handValue())) {
             return true;
         } else {
             return false;

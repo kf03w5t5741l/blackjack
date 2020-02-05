@@ -16,39 +16,41 @@ public class GameUserInterface {
     }
 
     public void run() {
-        System.out.println("\n======\nLET'S PLAY");
-        System.out.println("Instructions: 'h' to hit (new card), 's' to stand,"
-                + " 'q' to quit.");
+        this.printInstructions();
 
         for (Player player : this.round.getPlayers()) {
-            while (player.isPlaying()) {
-                player.incrementTurns();
-                System.out.println("\n======");
-                System.out.println(player.getName() + " - turn " +
-                        player.getTurns());
-                System.out.println("Hand: " + player.getHand());
-                System.out.println("Value: " + player.handValue());
-
-                String userCommand = "";
-                while (!this.parseCommand(userCommand, player)) {
-                    userCommand = this.getUserCommand();
-                }
-
-                if (player.isDead()) {
-                    System.out.println(player.getName() + " has lost."
-                            + " (Hand value: " + player.handValue()
-                            + " > 21)");
-                    player.setPlaying(false);
-                }
-            }
+            this.playTurn(player);
         }
 
         this.round.playHouseTurn();
         this.printWinners();
     }
 
+    private void playTurn(Player player) {
+        while (player.isPlaying()) {
+            player.incrementTurns();
+            System.out.println("\n======");
+            System.out.println(player.getName() + " - turn " +
+                    player.getTurns());
+            System.out.println("Hand: " + player.getHand());
+            System.out.println("Value: " + player.handValue());
+
+            String userCommand = "";
+            while (!this.parseCommand(userCommand, player)) {
+                userCommand = this.getUserCommand();
+            }
+
+            if (player.isDead()) {
+                System.out.println(player.getName() + " has lost."
+                        + " (Hand value: " + player.handValue()
+                        + " > 21)");
+                player.setPlaying(false);
+            }
+        }
+    }
+
     private String getUserCommand() {
-       System.out.print("Action: ");
+        System.out.print("Action: ");
        String userInput = this.reader.next().trim();
        return userInput;
     }
@@ -86,5 +88,11 @@ public class GameUserInterface {
             System.out.println(house.getName() + " v. " + player.getName()
                     + ": "+ winner.getName() + " wins.");
         }
+    }
+
+    private void printInstructions() {
+        System.out.println("\n======\nLET'S PLAY");
+        System.out.println("Instructions: 'h' to hit (new card), 's' to stand,"
+                + " 'q' to quit.");
     }
 }

@@ -24,6 +24,20 @@ public class Player implements Comparable<Player> {
         return drawnCard;
     }
 
+    public List<Card> draw(Deck deck, int amount) {
+        List<Card> drawnCards = new ArrayList();
+        for (int i = 0; i < amount; i++) {
+            Card drawnCard = this.draw(deck);
+
+            if (drawnCard == null) {
+                return null;
+            }
+
+            drawnCards.add(drawnCard);
+        }
+        return drawnCards;
+    }
+
     public void setPlaying(boolean status) {
         this.playing = status;
     }
