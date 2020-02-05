@@ -16,7 +16,7 @@ public class RoundUserInterface {
         this.round = round;
     }
 
-    public void run() {
+    public void runRound() {
         this.printInstructions();
 
         for (Player player : this.round.getPlayers()) {

@@ -29,7 +29,7 @@ public class RoundManager {
         GameRound round = new GameRound(this.players);
         RoundUserInterface ui = new RoundUserInterface(round);
 
-        ui.run();
+        ui.runRound();
     }
 
     private boolean asktoKeepPlaying() {
