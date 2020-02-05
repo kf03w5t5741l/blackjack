@@ -23,6 +23,7 @@ public class GameRound {
     }
 
     public void playHouseTurn() {
+        System.out.println("\n======\nHOUSE TURN");
         this.house.draw(this.deck, 2);
 
         System.out.println(this.house);
