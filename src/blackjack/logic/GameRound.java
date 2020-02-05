@@ -21,8 +21,11 @@ public class GameRound {
         this.house = new Participant("The House");
 
         for (Player player : this.players) {
+            player.prepareForNewRound();
             player.draw(this.deck, 2);
         }
+
+        this.house.prepareForNewRound();
         this.house.draw(this.deck, 2);
 
         this.bets = new HashMap<Player, Integer>();

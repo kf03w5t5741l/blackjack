@@ -23,7 +23,7 @@ public class Player extends Participant implements Comparable<Player> {
             return false;
         }
 
-        if (amount < this.balance) {
+        if (amount <= this.balance) {
             this.balance -= amount;
             return true;
         } else {

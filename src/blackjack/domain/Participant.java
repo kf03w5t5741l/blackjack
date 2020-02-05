@@ -25,6 +25,11 @@ public class Participant {
         return drawnCard;
     }
 
+    public void prepareForNewRound() {
+        this.setPlaying(true);
+        this.clearHand();
+    }
+
     public List<Card> draw(Deck deck, int amount) {
         List<Card> drawnCards = new ArrayList();
         for (int i = 0; i < amount; i++) {
@@ -57,6 +62,10 @@ public class Participant {
 
     public List<Card> getHand() {
         return this.hand;
+    }
+
+    public void clearHand() {
+        this.hand = new ArrayList<Card>();
     }
 
     public int handValue() {

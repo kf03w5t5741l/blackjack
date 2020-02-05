@@ -7,11 +7,11 @@ import blackjack.domain.Card;
 import blackjack.domain.Participant;
 import blackjack.domain.Player;
 
-public class GameUserInterface {
+public class RoundUserInterface {
     private Scanner reader;
     private GameRound round;
 
-    public GameUserInterface(GameRound round) {
+    public RoundUserInterface(GameRound round) {
         this.reader = new Scanner(System.in);
         this.round = round;
     }
