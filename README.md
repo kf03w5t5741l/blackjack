@@ -6,6 +6,6 @@ Simple Blackjack implementation. Meets the base requirements in the assignment s
 
 * ~~Add bank~~
 * ~~Add option for multiple players~~
-* Allow gambling
+* ~~Allow gambling~~
 * ???
 * Profit
