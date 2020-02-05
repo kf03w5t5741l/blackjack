@@ -1,7 +1,7 @@
 package blackjack.domain;
 
 public class Player extends Participant implements Comparable<Player> {
-    private static final int defaultStartingBalance = 1000;
+    private static final int DEFAULT_STARTING_BALANCE = 1000;
 
     private int balance;
 
@@ -11,7 +11,7 @@ public class Player extends Participant implements Comparable<Player> {
     }
 
     public Player(String name) {
-        this(name, Player.defaultStartingBalance);
+        this(name, Player.DEFAULT_STARTING_BALANCE);
     }
 
     public int getBalance() {
