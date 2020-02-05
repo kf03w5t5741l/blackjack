@@ -19,7 +19,7 @@ public class RoundManager {
         while (true) {
             this.startRound();
 
-            if (!this.asktoKeepPlaying()) {
+            if (!this.askToKeepPlaying()) {
                 break;
             }
         }
@@ -32,7 +32,7 @@ public class RoundManager {
         ui.runRound();
     }
 
-    private boolean asktoKeepPlaying() {
+    private boolean askToKeepPlaying() {
         String keepPlaying = "";
         while (!keepPlaying.equals("y") && !keepPlaying.equals("n")) {
             System.out.print("Play another round (y/n)? ");
