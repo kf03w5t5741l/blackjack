@@ -48,7 +48,7 @@ public class Player extends Participant implements Comparable<Player> {
 
     @Override
     public String toString() {
-        return super.getName() + " (balance: " + this.balance + "): "
-                + super.getHand() + " (value: " + this.handValue() + ")";
+        return this.getName() + " (balance: " + this.balance + "): "
+                + this.getHand() + " (value: " + this.handValue() + ")";
     }
 }
