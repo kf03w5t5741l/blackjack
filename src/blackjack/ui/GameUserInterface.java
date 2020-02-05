@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import blackjack.logic.GameRound;
 import blackjack.domain.Card;
+import blackjack.domain.Participant;
 import blackjack.domain.Player;
 
 public class GameUserInterface {
@@ -19,15 +20,29 @@ public class GameUserInterface {
         this.printInstructions();
 
         for (Player player : this.round.getPlayers()) {
+            System.out.println("\n======");
+            System.out.println(player.getName().toUpperCase() + "'S TURN");
+            this.collectBet(player);
             this.playTurn(player);
         }
 
         this.playHouseTurn();
+
+        this.round.processBetResults();
         this.printWinners();
     }
 
+    public void collectBet(Player player) {
+        int bet = -1;
+        while (!round.addBet(player, bet)) {
+            System.out.print("Balance: " + player.getBalance() + ". "
+                + "How much to bet? ");
+            bet = Integer.parseInt(reader.nextLine().trim());
+        }
+    }
+
     private void playTurn(Player player) {
-        System.out.println("\n======");
+
         while (player.isPlaying()) {
             player.incrementTurns();
             System.out.println("Turn " + player.getTurns() + " - " + player);
@@ -42,7 +57,7 @@ public class GameUserInterface {
     }
 
     private void playHouseTurn() {
-        Player house = this.round.getHouse();
+        Participant house = this.round.getHouse();
 
         System.out.println("\n======\nHOUSE TURN");
         house.incrementTurns();
@@ -61,10 +76,10 @@ public class GameUserInterface {
         }
     }
 
-    private boolean checkDead(Player player) {
-        if (player.isDead()) {
-            System.out.println(player + " is bust. (Hand value > 21)");
-            player.setPlaying(false);
+    private boolean checkDead(Participant participant) {
+        if (participant.isDead()) {
+            System.out.println(participant + " is bust. (Hand value > 21)");
+            participant.setPlaying(false);
             return true;
         } else {
             return false;
@@ -72,8 +87,8 @@ public class GameUserInterface {
     }
 
     private String getUserCommand() {
-        System.out.print("Action: ");
-       String userInput = this.reader.next().trim();
+       System.out.print("Action: ");
+       String userInput = this.reader.nextLine().trim();
        return userInput;
     }
 
@@ -102,8 +117,8 @@ public class GameUserInterface {
         System.out.println("\n======\nWINNERS");
 
         for (Player player : this.round.getPlayers()) {
-            Player house = this.round.getHouse();
-            Player winner = (this.round.hasWon(player)) ? player : house;
+            Participant house = this.round.getHouse();
+            Participant winner = (this.round.hasWon(player)) ? player : house;
 
             System.out.println(house + " v. " + player
                     + ": "+ winner.getName() + " wins.");
