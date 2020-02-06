@@ -3,8 +3,6 @@ package blackjack.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-import blackjack.domain.Face;
-
 public class Participant {
     private String name;
     private List<Card> hand;
