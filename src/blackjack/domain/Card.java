@@ -1,18 +1,8 @@
 package blackjack.domain;
 
 import java.util.Objects;
-import java.util.Set;
-import java.util.HashSet;
 
 public class Card {
-    public static Set<Card> getAces() {
-        Set<Card> aces = new HashSet<Card>();
-        for (Suit suit : Suit.values()) {
-            aces.add(new Card(suit, Face.ACE));
-        }
-        return aces;
-    }
-
     private Suit suit;
     private Face face;
 
