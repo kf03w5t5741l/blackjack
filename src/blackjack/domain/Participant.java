@@ -3,6 +3,8 @@ package blackjack.domain;
 import java.util.ArrayList;
 import java.util.List;
 
+import blackjack.domain.Face;
+
 public class Participant {
     private String name;
     private List<Card> hand;
@@ -65,8 +67,8 @@ public class Participant {
             handValue += card.getValue();
         }
 
-        for (Card ace : Card.getAces()) {
-            if (this.hand.contains(ace) && handValue > 21) {
+        for (Card card : this.hand) {
+            if (card.getFace() == Face.ACE && handValue > 21) {
                 handValue -= 10;
             }
         }
